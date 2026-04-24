@@ -1,7 +1,10 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
-[![Ubuntu](https://img.shields.io/badge/ubuntu-22.04-orange)](https://ubuntu.com)
+
+[![Ubuntu](https://img.shields.io/badge/ubuntu-latest-orange)](https://ubuntu.com)
+[![Ubuntu](https://img.shields.io/badge/ubuntu-24.04-orange)](https://ubuntu.com)
+[![Ubuntu](https://img.shields.io/badge/ubuntu-26.04-orange)](https://ubuntu.com)
+
 ![ARM64](https://img.shields.io/badge/linux%2farm64-Yes-red)
-![ARM64](https://img.shields.io/badge/linux%2farm%2fv7-Yes-red)
 ![AMD64](https://img.shields.io/badge/linux%2famd64-Yes-red)
 
 # gp-docker-devenv: Build a Docker dev containers for VSCode
@@ -85,8 +88,8 @@ You will need to create a multiarch builder:
 ./src/scripts/buildx/setup.sh
 ```
 
-On successful completion, it should at least have platforms `linux/arm64`,
-`linux/arm/v7` and `linux/amd64`:
+On successful completion, it should at least have platforms `linux/arm64`, and
+`linux/amd64`:
 
 ```sh
 [+] Building 5.8s (1/1) FINISHED
@@ -125,7 +128,7 @@ To build using a specific Ubuntu version, use:
 (cd scr && ./scripts/dev/image/build.sh <UBUNTU_VERSION>)
 ```
 
-where `UBUNTU_VERSION` must 22.04.
+where `UBUNTU_VERSION` must either 22.04, 24.04 or 26.04.
 
 It will create and image `ghcr.io/gp-devenv/gp-docker-devenv` tagged with the current
 version (see `src/.version` file) and `-dev` suffix.
@@ -180,7 +183,7 @@ To scan the image of a give Ubuntu version, simple use:
 (cd src && ./scripts/dev/scan.sh <UBUNTU_VERSION>)
 ```
 
-where `UBUNTU_VERSION` must be 22.04.
+where `UBUNTU_VERSION` must be either 22.04, 24.04 or 26.04.
 
 <div id="build-from-this-image" />
 
@@ -215,9 +218,11 @@ make sure the `vscode` is the last one activate.
 _`Base image version` correspond to the underlying base image that can be found
 [here](https://github.com/gp-devenv/gp-base-devenv/pkgs/container/gp-base-devenv)_
 
-|   Image   |            Base image version            |   Ubuntu    | amd64 | arm64 | arm/v7 | Daily build |
-| :-------: | :--------------------------------------: | :---------: | :---: | :---: | :----: | ----------- |
-| 22:04-1.x | ghcr.io/gp-devenv/gp-base-devenv:22.04-1 | 22.04 (LTS) |   X   |   X   |   X    | Yes         |
+|   Image   |            Base image version            |   Ubuntu    | amd64 | arm64 | Daily build |
+| :-------: | :--------------------------------------: | :---------: | :---: | :---: | :---------: |
+| 22:04-1.x | ghcr.io/gp-devenv/gp-base-devenv:22.04-1 | 22.04 (LTS) |   X   |   X   |     Yes     |
+| 24:04-1.x | ghcr.io/gp-devenv/gp-base-devenv:24.04-1 | 24.04 (LTS) |   X   |   X   |     Yes     |
+| 26:04-1.x | ghcr.io/gp-devenv/gp-base-devenv:26.04-1 | 26.04 (LTS) |   X   |   X   |     Yes     |
 
 <div id="faq" />
 

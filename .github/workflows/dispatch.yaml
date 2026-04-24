@@ -23,15 +23,19 @@ on:
         required: true
         type: string
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     name: Push ghcr.io/gp-devenv/gp-docker-devenv
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          ref: '1.5.1'
+          ref: '1.6.0'
       - name: Setup buildx
         run: (cd src && ./scripts/buildx/setup.sh)
       - name: Authenticating
@@ -43,11 +47,11 @@ jobs:
         env:
           ubuntuVersion: ${{ github.event.inputs.ubuntuVersion }}
   cleanup:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     needs: deploy
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Cleanup
         uses: gp-devenv/gp-docker-image-cleanup@v2
         with:
