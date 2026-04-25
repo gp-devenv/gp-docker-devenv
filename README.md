@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
-[![Ubuntu](https://img.shields.io/badge/ubuntu-latest-orange)](https://ubuntu.com)
+[![Ubuntu](https://img.shields.io/badge/ubuntu-22.04-orange)](https://ubuntu.com)
 [![Ubuntu](https://img.shields.io/badge/ubuntu-24.04-orange)](https://ubuntu.com)
 [![Ubuntu](https://img.shields.io/badge/ubuntu-26.04-orange)](https://ubuntu.com)
 
