@@ -36,7 +36,7 @@ if [ ! -f "$DOCKERFILE" ]; then
 fi
 
 docker buildx build --no-cache \
-                    --platform linux/arm64,linux/amd64,linux/arm/v7 \
+                    --platform linux/arm64,linux/amd64 \
                     -t $IMAGE_BASE_TAG \
                     -t $IMAGE_VERSION \
                     -t $IMAGE_VERSION_MAJOR \
